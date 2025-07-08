@@ -13,16 +13,15 @@
   />
 
   <style>
-    #map {
-      height: 100vh;
-      width: 100%;
+    html, body {
+      height: 100%;
       margin: 0;
       padding: 0;
     }
 
-    body, html {
-      margin: 0;
-      padding: 0;
+    #map {
+      height: 100%;
+      width: 100%;
     }
   </style>
 </head>
@@ -38,16 +37,16 @@
   ></script>
 
   <script>
-    // Initialize the map centered on the Caribbean
+    // Initialize map centered on Caribbean
     var map = L.map('map').setView([16.5, -62.5], 6);
 
-    // Add OpenStreetMap tile layer
+    // Add OpenStreetMap tiles
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    // Add a marker
+    // Marker for St. Kitts
     L.marker([17.3, -62.7])
       .addTo(map)
       .bindPopup('<b>Welcome to the Caribbean!</b><br>St. Kitts & Nevis')
