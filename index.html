@@ -1,37 +1,57 @@
-<!-- Load Leaflet CSS -->
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-  integrity="sha256-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44c="
-  crossorigin=""
-/>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Leaflet Map - Caribbean</title>
 
-<style>
-  #map {
-    height: 500px;
-    width: 100%;
-  }
-</style>
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44c="
+    crossorigin=""
+  />
 
-<div id="map"></div>
+  <style>
+    #map {
+      height: 100vh;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
 
-<!-- Load Leaflet JS -->
-<script
-  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-  integrity="sha256-o9N1jEJ2V1kzoNla3Q+Lo7yY1YbDoZ3/2F5x7iB8z0Y="
-  crossorigin=""
-></script>
+    body, html {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
 
-<script>
-  var map = L.map('map').setView([16.5, -62.5], 6);
+  <div id="map"></div>
 
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution:
-      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  }).addTo(map);
+  <!-- Leaflet JS -->
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-o9N1jEJ2V1kzoNla3Q+Lo7yY1YbDoZ3/2F5x7iB8z0Y="
+    crossorigin=""
+  ></script>
 
-  L.marker([17.3, -62.7])
-    .addTo(map)
-    .bindPopup('<b>Welcome to the Caribbean!</b><br>St. Kitts & Nevis')
-    .openPopup();
-</script>
+  <script>
+    // Initialize the map centered on the Caribbean
+    var map = L.map('map').setView([16.5, -62.5], 6);
+
+    // Add OpenStreetMap tile layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    // Add a marker
+    L.marker([17.3, -62.7])
+      .addTo(map)
+      .bindPopup('<b>Welcome to the Caribbean!</b><br>St. Kitts & Nevis')
+      .openPopup();
+  </script>
+</body>
+</html>
